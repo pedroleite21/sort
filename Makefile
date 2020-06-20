@@ -74,26 +74,42 @@ ALL_LDFLAGS += $(addprefix -Xlinker ,$(EXTRA_LDFLAGS))
 # This part modified by Eugenio Pacceli Reis da Fonseca
 # DCC/UFMG
 # Target rules
+GCCFLAGS = -g -Wall -Wfatal-errors
+GCCCOVFLAGS = -fprofile-arcs -ftest-coverage 
+GCCSANITIZE = fsanitize=address
 all: app
 
 array.o:array.c
-	gcc -o $@ -c $<
+	gcc $(GCCFLAGS) -o $@ -c $<
 
 sort.o:sort.c
-	gcc -o $@ -c $<
+	gcc $(GCCFLAGS) -o $@ -c $<
 
 get_opt.o:get_opt.c
-	gcc -o $@ -c $<
+	gcc $(GCCFLAGS) -o $@ -c $<
 
 main.o:main.c
-	gcc -o $@ -c $<
+	gcc $(GCCFLAGS) -o $@ -c $<
 
 app: array.o sort.o get_opt.o main.o
-	gcc $(ALL_LDFLAGS) -o $@ $+ $(LIBRARIES)
+	gcc $(GCCFLAGS) $(ALL_LDFLAGS) -o $@ $+ $(LIBRARIES)
+
+cov: array.c sort.c get_opt.c main.c
+	gcc $(GCCFLAGS) $(GCCCOVFLAGS) -o $@ $+
+
+test: cov
+	bash test/test_cov
+	gcov -b array.c sort.c get_opt.c main.c
+	lcov --capture --directory ./ --output-file coverage.info
+	genhtml coverage.info --output-directory out
 
 run: build
 	./app
 
 clean:
+	rm -f *.gcda
+	rm -f *.gcno
+	rm -f *.info
 	rm -f *.o
 	rm -f app
+	rm -f cov

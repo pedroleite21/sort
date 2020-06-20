@@ -1,2 +1,8 @@
 *.o
 app
+cov
+*.gcov
+*.gcda
+*.gcno
+coverage.info
+out/
