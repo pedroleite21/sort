@@ -1,6 +1,8 @@
 sort
 ====
 
+[![Build Status](https://travis-ci.org/pedroleite21/sort.svg?branch=c_only)](https://travis-ci.org/pedroleite21/sort)
+
 ps.: **modified by Alexandre Amory to remove CUDA code.**
 
 
