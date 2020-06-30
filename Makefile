@@ -128,6 +128,7 @@ run: build
 	./app
 
 clean:
+	rm -f *.gcov
 	rm -f *.gcda
 	rm -f *.gcno
 	rm -f *.info
