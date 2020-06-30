@@ -17,3 +17,5 @@ script:
   - make
   - make cov
   - make test
+  - make unity_array
+  - make run_unity_tests

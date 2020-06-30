@@ -1,1 +1,3 @@
 ./cov -a merge -n 1000 -s random
+
+gcov -b -c array.c sort.c get_opt.c main.c

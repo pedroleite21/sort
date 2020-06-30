@@ -69,6 +69,24 @@ ALL_LDFLAGS += $(ALL_CCFLAGS)
 ALL_LDFLAGS += $(addprefix -Xlinker ,$(LDFLAGS))
 ALL_LDFLAGS += $(addprefix -Xlinker ,$(EXTRA_LDFLAGS))
 
+CFLAGS=-std=c89
+CFLAGS += -Wall
+CFLAGS += -Wextra
+CFLAGS += -Wpointer-arith
+CFLAGS += -Wcast-align
+CFLAGS += -Wwrite-strings
+CFLAGS += -Wswitch-default
+CFLAGS += -Wunreachable-code
+CFLAGS += -Winit-self
+CFLAGS += -Wmissing-field-initializers
+CFLAGS += -Wno-unknown-pragmas
+CFLAGS += -Wstrict-prototypes
+CFLAGS += -Wundef
+CFLAGS += -Wold-style-definition
+
+UNITY_ROOT=./tools/Unity
+SRC_FILES1=$(UNITY_ROOT)/src/unity.c array.c  test/test_array.c
+# SRC_FILES2=$(UNITY_ROOT)/src/unity.c src/ProductionCode2.c test/TestProductionCode2.c test/test_runners/TestProductionCode2_Runner.c
 
 ################################################################################
 # This part modified by Eugenio Pacceli Reis da Fonseca
@@ -99,9 +117,12 @@ cov: array.c sort.c get_opt.c main.c
 
 test: cov
 	bash test/test_cov
-	gcov -b array.c sort.c get_opt.c main.c
-	lcov --capture --directory ./ --output-file coverage.info
-	genhtml coverage.info --output-directory out
+
+unity_array: $(SRC_FILES1)
+	gcc $(SRC_FILES1) -o test_array
+
+run_unity_tests: test_array
+	./test_array
 
 run: build
 	./app
