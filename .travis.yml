@@ -17,6 +17,9 @@ script:
   - make clean
   - make
   - make cov
-  - make test
+  - make test_cov
+  - make test_cpp
+  - make test_valgrind
+  - make test_sanitize
   - make unity_array
   - make run_unity_tests

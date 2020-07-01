@@ -14,7 +14,7 @@ int main(int argc, char **argv) {
         fprintf(stderr,"Please read the doc.\n");
         return 1;
     }
-
+    
     get_opt(argc, argv, &method, &size, &array_type, &print_vector);
 
     // Create the vector with the specified size and situation

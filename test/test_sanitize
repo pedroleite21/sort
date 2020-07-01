@@ -1,5 +1,6 @@
 echo "Sanitize"
-echo "Entrada: a / Saída Esperada: Valido"
-echo "a" | ./identifier_sanitize
-echo "Entrada: abc4 / Saída Esperada: Valido"
-echo "abc4" | ./identifier_sanitize
+
+gcc -g -Wall -Wfatal-errors -fsanitize=address array.c sort.c get_opt.c main.c -o main_sanitize
+
+./main_sanitize -a merge -n 800000000 -s almost
+./main_sanitize -a merge -n -10 -s almost 

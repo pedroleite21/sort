@@ -115,8 +115,17 @@ app: array.o sort.o get_opt.o main.o
 cov: array.c sort.c get_opt.c main.c
 	gcc $(GCCFLAGS) $(GCCCOVFLAGS) -o $@ $+
 
-test: test/test_cov
+test_cov: test/test_cov 
 	bash test/test_cov
+
+test_cpp: test/test_cpp
+	bash test/test_cpp
+
+test_sanitize: test/test_sanitize
+	bash test/test_sanitize
+
+test_valgrind: test/test_valgrind
+	bash test/test_valgrind
 
 unity_array: $(SRC_FILES1)
 	gcc $(SRC_FILES1) -o test_array

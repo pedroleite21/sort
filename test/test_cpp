@@ -1,6 +1,2 @@
 echo "Cppcheck"
-
-./main.c -a merge -n 1000 -s random
-
-
-cppcheck --enable=all --suppress=missingIncludeSystem sort.c
+cppcheck --enable=all --suppress=missingIncludeSystem sort.c array.c main.c get_opt.c --error-exitcode=1
