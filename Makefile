@@ -130,6 +130,9 @@ test_unity: $(SRC_FILES)
 	gcc $(SRC_FILES) -o unity_tests
 	./unity_tests
 
+run_tests: test/test_cov test/test_cpp test/test_sanitize test/test_valgrind $(SRC_FILES)
+	bash test/all_tests
+
 run: build
 	./app
 

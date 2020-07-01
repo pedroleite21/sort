@@ -16,9 +16,4 @@ install:
 script:
   - make clean
   - make
-  - make cov
-  - make test_cov
-  - make test_cpp
-  - make test_valgrind
-  - make test_sanitize
-  - make test_unity
+  - make run_tests
