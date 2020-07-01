@@ -30,7 +30,10 @@
 ./cov -a heap -n 1000 -s almost
 ./cov -a merge -n 1000 -s almost
 
-./cov -a merge -n 800000000 -s almost
+./cov -a merge -n 800000000000 -s almost
+
+./cov -a wrong -n 0 -s wrong
+./cov
 
 gcov -b -c array.c sort.c get_opt.c main.c
 ! grep -c '#####' *.c.gcov
