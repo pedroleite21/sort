@@ -1,4 +1,36 @@
+./cov -a merge -n 1000 -s random -P
+./cov -a selection -n 1000 -s random
+./cov -a insertion -n 1000 -s random
+./cov -a shell -n 1000 -s random
+./cov -a quick -n 1000 -s random
+./cov -a heap -n 1000 -s random
 ./cov -a merge -n 1000 -s random
 
+./cov -a merge -n 1000 -s ascending
+./cov -a selection -n 1000 -s ascending
+./cov -a insertion -n 1000 -s ascending
+./cov -a shell -n 1000 -s ascending
+./cov -a quick -n 1000 -s ascending
+./cov -a heap -n 1000 -s ascending
+./cov -a merge -n 1000 -s ascending
+
+./cov -a merge -n 1000 -s descending
+./cov -a selection -n 1000 -s descending
+./cov -a insertion -n 1000 -s descending
+./cov -a shell -n 1000 -s descending
+./cov -a quick -n 1000 -s descending
+./cov -a heap -n 1000 -s descending
+./cov -a merge -n 1000 -s descending
+
+./cov -a merge -n 1000 -s almost
+./cov -a selection -n 1000 -s almost
+./cov -a insertion -n 1000 -s almost
+./cov -a shell -n 1000 -s almost
+./cov -a quick -n 1000 -s almost
+./cov -a heap -n 1000 -s almost
+./cov -a merge -n 1000 -s almost
+
+./cov -a merge -n 800000000 -s almost
+
 gcov -b -c array.c sort.c get_opt.c main.c
-! grep -c '#####' main.c.gcov
+! grep -c '#####' *.c.gcov

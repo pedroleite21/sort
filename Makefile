@@ -115,7 +115,7 @@ app: array.o sort.o get_opt.o main.o
 cov: array.c sort.c get_opt.c main.c
 	gcc $(GCCFLAGS) $(GCCCOVFLAGS) -o $@ $+
 
-test: cov
+test: test/test_cov
 	bash test/test_cov
 
 unity_array: $(SRC_FILES1)
