@@ -1,0 +1,5 @@
+echo "Sanitize"
+echo "Entrada: a / Saída Esperada: Valido"
+echo "a" | ./identifier_sanitize
+echo "Entrada: abc4 / Saída Esperada: Valido"
+echo "abc4" | ./identifier_sanitize

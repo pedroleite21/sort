@@ -1,0 +1,6 @@
+echo "Cppcheck"
+
+./main.c -a merge -n 1000 -s random
+
+
+cppcheck --enable=all --suppress=missingIncludeSystem sort.c

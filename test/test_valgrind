@@ -1,0 +1,5 @@
+echo "Valgrind"
+
+./main.c -a merge -n 1000 -s random
+
+valgrind --leak-check=full --show-leak-kinds=all echo "'#####'" | ./sort
