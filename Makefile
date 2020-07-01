@@ -85,8 +85,7 @@ CFLAGS += -Wundef
 CFLAGS += -Wold-style-definition
 
 UNITY_ROOT=./tools/Unity
-SRC_FILES1=$(UNITY_ROOT)/src/unity.c array.c  test/test_array.c
-# SRC_FILES2=$(UNITY_ROOT)/src/unity.c src/ProductionCode2.c test/TestProductionCode2.c test/test_runners/TestProductionCode2_Runner.c
+SRC_FILES=$(UNITY_ROOT)/src/unity.c array.c sort.c get_opt.c test/unity_tests.c
 
 ################################################################################
 # This part modified by Eugenio Pacceli Reis da Fonseca
@@ -127,11 +126,9 @@ test_sanitize: test/test_sanitize
 test_valgrind: test/test_valgrind
 	bash test/test_valgrind
 
-unity_array: $(SRC_FILES1)
-	gcc $(SRC_FILES1) -o test_array
-
-run_unity_tests: test_array
-	./test_array
+test_unity: $(SRC_FILES)
+	gcc $(SRC_FILES) -o unity_tests
+	./unity_tests
 
 run: build
 	./app

@@ -21,5 +21,4 @@ script:
   - make test_cpp
   - make test_valgrind
   - make test_sanitize
-  - make unity_array
-  - make run_unity_tests
+  - make test_unity
