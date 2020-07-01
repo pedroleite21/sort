@@ -1,4 +1,4 @@
 echo "Valgrind"
 
-valgrind --leak-check=full --show-leak-kinds=all ./main_sanitize -a merge -n 800000000 -s almost
-valgrind --leak-check=full --show-leak-kinds=all ./main.c -a merge -n 1000 -s random
+valgrind --leak-check=full --show-leak-kinds=all ./app -a merge -n 80000000000 -s almost
+valgrind --leak-check=full --show-leak-kinds=all ./app -a merge -n 1000 -s random
